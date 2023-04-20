@@ -1,8 +1,8 @@
 package users
 
 import (
-	"rt-server/models"
-	"rt-server/utils"
+	"kozo/models"
+	"kozo/utils"
 )
 
 func GetFriendRequests(ID uint, c chan utils.AppResponse) {

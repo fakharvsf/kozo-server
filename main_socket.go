@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"kozo/utils"
+	"kozo/views/socket"
 	"net/http"
-	"rt-server/utils"
-	"rt-server/views/socket"
 
 	socketio "github.com/googollee/go-socket.io"
 )
@@ -69,7 +69,7 @@ func MainSocketServer() {
 	go server.Serve()
 	defer server.Close()
 
-	SocketServer := "192.168.122.21";
+	SocketServer := "192.168.1.4";
 	// SocketServer := "127.0.0.1";
 	SocketPORT := 3334;
 	fmt.Println("Socket server is up and running on Port:", SocketPORT)

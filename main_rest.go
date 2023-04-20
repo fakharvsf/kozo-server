@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"kozo/utils"
+	"kozo/views/rest"
 	"net/http"
-	"rt-server/utils"
-	"rt-server/views/rest"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -40,7 +40,7 @@ func MainRestServer() {
 	r.Route("/api/tasks", rest.Tasks)
 	r.Route("/api/users", rest.Users)
 
-	RestServer := "192.168.122.21";
+	RestServer := "192.168.1.4";
 	// RestServer := "127.0.0.1";
 	RestPORT := 3333;
 	fmt.Println("REST server is up and running on Port:", RestPORT)

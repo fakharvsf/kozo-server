@@ -1,6 +1,6 @@
 package utils
 
-import "rt-server/models"
+import "kozo/models"
 
 func DBMigrate(noDB bool) {
 	DB.AutoMigrate(&models.PersonalTask{}, &models.User{}, &models.FriendRequest{}, &models.Friend{}, &models.AssignedTask{})

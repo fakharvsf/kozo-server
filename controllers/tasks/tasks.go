@@ -1,8 +1,8 @@
 package tasks
 
 import (
-	"rt-server/models"
-	"rt-server/utils"
+	"kozo/models"
+	"kozo/utils"
 )
 
 func Create(ID uint, personalTaskCreate models.PersonalTaskCreate, c chan utils.AppResponse) {

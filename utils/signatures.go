@@ -3,7 +3,7 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"rt-server/models"
+	"kozo/models"
 
 	socketio "github.com/googollee/go-socket.io"
 )

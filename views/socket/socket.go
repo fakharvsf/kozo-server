@@ -3,9 +3,9 @@ package socket
 import (
 	"encoding/json"
 	"fmt"
-	"rt-server/controllers/tasks"
-	"rt-server/models"
-	"rt-server/utils"
+	"kozo/controllers/tasks"
+	"kozo/models"
+	"kozo/utils"
 	"strings"
 
 	socketio "github.com/googollee/go-socket.io"

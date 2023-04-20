@@ -1,4 +1,4 @@
-module rt-server
+module kozo
 
 go 1.19
 

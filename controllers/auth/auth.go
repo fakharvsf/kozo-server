@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"rt-server/models"
-	"rt-server/utils"
+	"kozo/models"
+	"kozo/utils"
 
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"

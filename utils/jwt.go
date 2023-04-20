@@ -27,7 +27,7 @@ func GenerateJwtToken (ID uint, role string) *jwt.Token {
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(72 * time.Hour)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			NotBefore: jwt.NewNumericDate(time.Now()),
-			Issuer:    "rt-server",
+			Issuer:    "kozo",
 		},
 	}
 

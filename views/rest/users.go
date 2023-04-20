@@ -2,10 +2,10 @@ package rest
 
 import (
 	"encoding/json"
+	"kozo/controllers/users"
+	"kozo/models"
+	"kozo/utils"
 	"net/http"
-	"rt-server/controllers/users"
-	"rt-server/models"
-	"rt-server/utils"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/render"
