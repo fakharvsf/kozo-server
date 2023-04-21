@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"kozo/utils"
 	"os"
 
@@ -15,10 +16,10 @@ func main() {
 		panic("Please run as 'go run . rest dev' or 'go run . socket dev")
 	}
 
-	// Load Env Path
+	dir, _ := ioutil.ReadFile("dir.txt")
 	err := godotenv.Load(".env.path")
 
-	var env string = os.Getenv("dir")
+	var env string = string(dir)
 
 	if(args[1] == "dev"){
 		env = env + ".env.dev"
