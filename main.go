@@ -1,15 +1,22 @@
 package main
 
 import (
+	"kozo/utils"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
 	args := os.Args[1:]
 
 	if len(args) <= 1 {
 		panic("Please run as 'go run . rest dev' or 'go run . socket dev")
 	}
+
+	// Load Env Path
+	err := godotenv.Load(".env.path")
 
 	var env string = os.Getenv("dir")
 
@@ -19,9 +26,26 @@ func main() {
 		env = env + ".env.prod"
 	}
 
+	// Load Env
+	err = godotenv.Load(env)
+
+	if err != nil {
+		panic(err)
+	}
+
+	// DB Connection
+	dbError := utils.DBConnect()
+
+	if dbError != nil {
+		panic(dbError)
+	}
+
+	// Run migrations
+	utils.DBMigrate(false)
+
 	if args[0] == "rest" {
-		MainRestServer(env)
+		MainRestServer()
 	} else {
-		MainSocketServer(env)
+		MainSocketServer()
 	}
 }

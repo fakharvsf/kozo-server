@@ -8,25 +8,9 @@ import (
 	"os"
 
 	socketio "github.com/googollee/go-socket.io"
-	"github.com/joho/godotenv"
 )
 
-func MainSocketServer(env string) {
-	// Load Env
-	err := godotenv.Load(env)
-
-	if err != nil {
-		panic(err)
-	}
-	
-	// DB Connection
-	dbError := utils.DBConnect()
-	if dbError != nil {
-		panic(dbError)
-	}
-
-	// Run migrations
-	utils.DBMigrate(false)
+func MainSocketServer() {
 
 	// Redis Connection
 	redisError := utils.RedisConnect()

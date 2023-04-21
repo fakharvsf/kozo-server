@@ -1,5 +1,6 @@
 go.sum
 .env.dev
 .env.prod
+.env.path
 kozo
 kozo.exe

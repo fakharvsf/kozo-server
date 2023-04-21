@@ -10,27 +10,9 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
-	"github.com/joho/godotenv"
 )
 
-func MainRestServer(env string) {
-
-	// Load Env
-	err := godotenv.Load(env)
-
-	if err != nil {
-		panic(err)
-	}
-
-	// DB Connection
-	dbError := utils.DBConnect()
-
-	if dbError != nil {
-		panic(dbError)
-	}
-
-	// Run migrations
-	utils.DBMigrate(false)
+func MainRestServer() {
 
 	// Router
 	r := chi.NewRouter()
