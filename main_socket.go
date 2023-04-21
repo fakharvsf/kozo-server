@@ -5,11 +5,20 @@ import (
 	"kozo/utils"
 	"kozo/views/socket"
 	"net/http"
+	"os"
 
 	socketio "github.com/googollee/go-socket.io"
+	"github.com/joho/godotenv"
 )
 
-func MainSocketServer() {
+func MainSocketServer(env string) {
+	// Load Env
+	err := godotenv.Load(env)
+
+	if err != nil {
+		panic(err)
+	}
+	
 	// DB Connection
 	dbError := utils.DBConnect()
 	if dbError != nil {
@@ -69,9 +78,8 @@ func MainSocketServer() {
 	go server.Serve()
 	defer server.Close()
 
-	SocketServer := "192.168.1.4";
-	// SocketServer := "127.0.0.1";
-	SocketPORT := 3334;
-	fmt.Println("Socket server is up and running on Port:", SocketPORT)
-	http.ListenAndServe(fmt.Sprintf("%s:%d", SocketServer, SocketPORT), server)
+	serverIP := os.Getenv("serverIP");
+	serverPort := os.Getenv("serverPort");
+	fmt.Println("Socket server is up and running on Port:", serverPort)
+	http.ListenAndServe(fmt.Sprintf("%s:%s", serverIP, serverPort), server)
 }

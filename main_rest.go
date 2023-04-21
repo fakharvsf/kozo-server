@@ -5,13 +5,23 @@ import (
 	"kozo/utils"
 	"kozo/views/rest"
 	"net/http"
+	"os"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
+	"github.com/joho/godotenv"
 )
 
-func MainRestServer() {
+func MainRestServer(env string) {
+
+	// Load Env
+	err := godotenv.Load(env)
+
+	if err != nil {
+		panic(err)
+	}
+
 	// DB Connection
 	dbError := utils.DBConnect()
 
@@ -40,9 +50,8 @@ func MainRestServer() {
 	r.Route("/api/tasks", rest.Tasks)
 	r.Route("/api/users", rest.Users)
 
-	RestServer := "192.168.1.4";
-	// RestServer := "127.0.0.1";
-	RestPORT := 3333;
-	fmt.Println("REST server is up and running on Port:", RestPORT)
-	http.ListenAndServe(fmt.Sprintf("%s:%d", RestServer, RestPORT), r)
+	serverIP := os.Getenv("serverIP");
+	serverPort := os.Getenv("serverPort");
+	fmt.Println("REST server is up and running on Port:", serverPort)
+	http.ListenAndServe(fmt.Sprintf("%s:%s", serverIP, serverPort), r)
 }

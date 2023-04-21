@@ -30,6 +30,8 @@ require (
 	github.com/jackc/pgx/v4 v4.17.2 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/joho/godotenv v1.5.1 // indirect
+	github.com/lib/pq v1.10.8 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	golang.org/x/text v0.4.0 // indirect
 )
